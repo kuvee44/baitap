@@ -10,6 +10,9 @@ import Modal from '@/components/Modal';
 import Form from '@/components/Form';
 import Accordion from '@/components/Accordion';
 import Table from '@/components/Table';
+import UserTable from '@/components/UserTable';
+import Dashboard from '@/components/Dashboard';
+import AdvancedSearch from '@/components/AdvancedSearch';
 
 export default function Home() {
   const [count, setCount] = useState(0);
@@ -140,10 +143,34 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Table Section */}
+        {/* Dashboard */}
+        <section className="mb-12">
+          <Dashboard />
+        </section>
+
+        {/* Advanced Search */}
+        <section className="mb-12">
+          <AdvancedSearch 
+            onSearch={(filters) => {
+              console.log('Search filters:', filters);
+              // Implement search logic here
+            }}
+            onReset={() => {
+              console.log('Reset search');
+              // Implement reset logic here
+            }}
+          />
+        </section>
+
+        {/* API Integration Demo */}
+        <section className="mb-12">
+          <UserTable />
+        </section>
+
+        {/* Static Table Section (for comparison) */}
         <section className="mb-12">
           <div className="bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Danh sách người dùng</h2>
+            <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Dữ liệu tĩnh (để so sánh)</h2>
             <p className="text-gray-600 text-center mb-6">Click vào hàng để xem chi tiết</p>
             <Table 
               columns={tableColumns} 
@@ -215,6 +242,30 @@ export default function Home() {
                   ✓
                 </div>
                 <span className="text-lg">Data Table</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                  ✓
+                </div>
+                <span className="text-lg">API Integration</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                  ✓
+                </div>
+                <span className="text-lg">CRUD Operations</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                  ✓
+                </div>
+                <span className="text-lg">Loading States</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                  ✓
+                </div>
+                <span className="text-lg">Error Handling</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center">

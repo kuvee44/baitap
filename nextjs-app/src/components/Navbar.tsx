@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Button from './Button';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,6 +34,7 @@ const Navbar: React.FC = () => {
             <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">
               Liên hệ
             </a>
+            <ThemeToggle />
             <Button variant="primary" size="sm">
               Đăng nhập
             </Button>
@@ -67,9 +69,12 @@ const Navbar: React.FC = () => {
               <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">
                 Liên hệ
               </a>
-              <Button variant="primary" size="sm" className="w-full">
-                Đăng nhập
-              </Button>
+              <div className="flex items-center justify-between">
+                <ThemeToggle />
+                <Button variant="primary" size="sm">
+                  Đăng nhập
+                </Button>
+              </div>
             </div>
           </div>
         )}
